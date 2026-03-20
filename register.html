@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | EcoPack Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="bg-soft-beige dark:bg-charcoal text-charcoal dark:text-soft-beige font-sans min-h-screen flex flex-col">
+    
+    <main class="flex-grow grid lg:grid-cols-2">
+        <!-- Form Side -->
+        <div class="flex flex-col justify-center items-center p-8 lg:p-12 relative overflow-y-auto w-full h-full bg-white dark:bg-charcoal order-2 lg:order-1">
+            <!-- Mobile Toggle -->
+            <button class="lg:hidden theme-toggle absolute top-6 right-6 p-2 text-charcoal dark:text-soft-beige">
+                <i data-feather="moon" class="w-5 h-5 dark:hidden"></i>
+                <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+            </button>
+
+            <div class="w-full max-w-lg fade-in py-10">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-2 mb-8 justify-center">
+                    <div class="w-10 h-10 bg-leaf-green/10 rounded-xl flex items-center justify-center text-leaf-green">
+                        <i data-feather="package" class="w-6 h-6"></i>
+                    </div>
+                    <span class="font-bold text-2xl tracking-tight text-leaf-green">EcoPack</span>
+                </a>
+
+                <h1 class="text-3xl font-bold mb-2 text-center">Create an account</h1>
+                <p class="text-charcoal-light dark:text-gray-400 mb-8 text-center">Join the sustainable packaging revolution today.</p>
+
+                <form class="space-y-5">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">First Name</label>
+                            <input type="text" class="w-full bg-soft-beige dark:bg-black/20 border border-transparent focus:border-leaf-green rounded-lg px-4 py-3 outline-none transition-all" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Last Name</label>
+                            <input type="text" class="w-full bg-soft-beige dark:bg-black/20 border border-transparent focus:border-leaf-green rounded-lg px-4 py-3 outline-none transition-all" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Email Address</label>
+                        <input type="email" class="w-full bg-soft-beige dark:bg-black/20 border border-transparent focus:border-leaf-green rounded-lg px-4 py-3 outline-none transition-all" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Phone Number</label>
+                        <input type="tel" class="w-full bg-soft-beige dark:bg-black/20 border border-transparent focus:border-leaf-green rounded-lg px-4 py-3 outline-none transition-all" required>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Password</label>
+                            <input type="password" class="w-full bg-soft-beige dark:bg-black/20 border border-transparent focus:border-leaf-green rounded-lg px-4 py-3 outline-none transition-all" required>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Confirm Password</label>
+                            <input type="password" class="w-full bg-soft-beige dark:bg-black/20 border border-transparent focus:border-leaf-green rounded-lg px-4 py-3 outline-none transition-all" required>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start mb-6 mt-4">
+                        <div class="flex items-center h-5">
+                            <input type="checkbox" class="w-4 h-4 text-leaf-green bg-soft-beige border-gray-300 rounded focus:ring-leaf-green" required>
+                        </div>
+                        <div class="ml-3 text-sm">
+                            <label class="font-medium text-charcoal dark:text-gray-300">I agree to the <a href="#" class="text-leaf-green hover:underline">Terms and Conditions</a> and <a href="#" class="text-leaf-green hover:underline">Privacy Policy</a>.</label>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full py-3.5 bg-leaf-green hover:bg-leaf-green-dark text-white rounded-lg font-bold transition-all shadow-lg shadow-leaf-green/30">Create Account</button>
+                </form>
+
+                <p class="mt-8 text-center text-sm text-charcoal-light dark:text-gray-400">
+                    Already have an account? <a href="login.html" class="font-semibold text-leaf-green hover:underline">Sign in</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Illustration Side -->
+        <div class="hidden lg:block relative h-full bg-earth-brown order-1 lg:order-2">
+            <img src="https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Eco Background" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-earth-brown/90 to-transparent"></div>
+            <div class="absolute bottom-12 left-12 right-12 text-white">
+                <i data-feather="globe" class="w-12 h-12 mb-6 opacity-80"></i>
+                <h2 class="text-3xl font-bold mb-4">Partner for the Planet.</h2>
+                <p class="opacity-90 leading-relaxed max-w-md">By joining EcoPack, you get direct access to wholesale pricing, dedicated environmental engineers, and seamless supply chain integrations.</p>
+            </div>
+            <!-- Theme Toggle for desktop -->
+            <div class="absolute top-8 right-8">
+                <button class="theme-toggle p-2 bg-white/10 backdrop-blur-md rounded-full text-white hover:bg-white/20 transition-colors">
+                    <i data-feather="moon" class="w-5 h-5 dark:hidden"></i>
+                    <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="assets/js/main.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>

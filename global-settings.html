@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | EcoPack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="bg-soft-beige dark:bg-charcoal text-charcoal dark:text-soft-beige font-sans flex h-screen overflow-hidden">
+    
+    <!-- Sidebar Overlay -->
+    <div id="admin-sidebar-overlay" class="fixed inset-0 bg-charcoal/50 z-40 hidden lg:hidden opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+    
+    <!-- Sidebar -->
+    <aside id="admin-sidebar" class="w-64 bg-white dark:bg-black/20 border-r border-black/5 dark:border-white/5 flex flex-col h-full flex-shrink-0 transition-transform duration-300 fixed inset-y-0 left-0 z-50 -translate-x-full lg:relative lg:translate-x-0">
+        <!-- Logo -->
+        <div class="h-16 flex items-center px-6 border-b border-black/5 dark:border-white/5">
+            <a href="index.html" class="flex items-center gap-2">
+                <i data-feather="shield" class="text-leaf-green w-6 h-6"></i>
+                <span class="font-bold text-xl tracking-tight text-leaf-green">EcoPack Admin</span>
+            </a>
+        </div>
+        
+        <!-- Nav Links -->
+        <div class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
+            <p class="px-3 text-xs font-semibold text-charcoal-light dark:text-gray-500 uppercase tracking-wider mb-2">System Menu</p>
+            <a href="admin.html" class="flex items-center gap-3 px-3 py-2.5 text-charcoal-light dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-charcoal dark:hover:text-white rounded-lg font-medium transition-colors">
+                <i data-feather="grid" class="w-5 h-5"></i> Admin Dashboard
+            </a>
+            <a href="user-management.html" class="flex items-center gap-3 px-3 py-2.5 text-charcoal-light dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-charcoal dark:hover:text-white rounded-lg font-medium transition-colors">
+                <i data-feather="users" class="w-5 h-5"></i> User Management
+            </a>
+            <a href="system-logs.html" class="flex items-center gap-3 px-3 py-2.5 text-charcoal-light dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-charcoal dark:hover:text-white rounded-lg font-medium transition-colors">
+                <i data-feather="database" class="w-5 h-5"></i> System Logs
+            </a>
+            <a href="financial-reports.html" class="flex items-center gap-3 px-3 py-2.5 text-charcoal-light dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-charcoal dark:hover:text-white rounded-lg font-medium transition-colors">
+                <i data-feather="bar-chart-2" class="w-5 h-5"></i> Financial Reports
+            </a>
+            
+            <p class="px-3 text-xs font-semibold text-charcoal-light dark:text-gray-500 uppercase tracking-wider mt-8 mb-2">Configuration</p>
+            <a href="global-settings.html" class="flex items-center gap-3 px-3 py-2.5 bg-leaf-green/10 text-leaf-green rounded-lg font-medium transition-colors">
+                <i data-feather="settings" class="w-5 h-5"></i> Global Settings
+            </a>
+            <a href="security-roles.html" class="flex items-center gap-3 px-3 py-2.5 text-charcoal-light dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-charcoal dark:hover:text-white rounded-lg font-medium transition-colors">
+                <i data-feather="lock" class="w-5 h-5"></i> Security Roles
+            </a>
+        </div>
+
+        <!-- Logout -->
+        <div class="p-4 border-t border-black/5 dark:border-white/5">
+            <a href="login.html" class="flex items-center gap-3 px-3 py-2.5 text-red-500 hover:bg-red-500/10 rounded-lg font-medium transition-colors">
+                <i data-feather="log-out" class="w-5 h-5"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col h-full h-full overflow-hidden">
+        
+        <!-- Topbar -->
+        <header class="h-16 bg-white dark:bg-black/20 border-b border-black/5 dark:border-white/5 flex items-center justify-between px-4 sm:px-6 lg:px-8 z-10 transition-all duration-300">
+            <div class="flex items-center gap-4">
+                <button id="admin-menu-btn" class="lg:hidden p-2 text-charcoal dark:text-white">
+                    <i data-feather="menu"></i>
+                </button>
+                <div class="relative hidden sm:block">
+                    <i data-feather="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    <input type="text" placeholder="Search logs or users..." class="pl-10 pr-4 py-2 bg-black/5 dark:bg-white/5 border-transparent focus:border-leaf-green focus:bg-white dark:focus:bg-charcoal rounded-lg text-sm w-64 outline-none transition-all">
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <button class="rtl-toggle p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                    <i data-feather="globe" class="w-5 h-5"></i>
+                </button>
+                <button class="theme-toggle p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                    <i data-feather="moon" class="w-5 h-5 dark:hidden"></i>
+                    <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+                </button>
+                <div class="relative ml-2">
+                    <button class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                        <i data-feather="bell" class="w-5 h-5"></i>
+                    </button>
+                </div>
+                <div class="h-8 w-8 rounded-full bg-charcoal text-white flex items-center justify-center font-bold text-sm ml-2 cursor-pointer shadow-sm">
+                    SA
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+            <div class="max-w-4xl mx-auto space-y-8">
+                <div class="flex justify-between items-end">
+                    <h1 class="text-2xl font-bold">Global Settings</h1>
+                    <button class="px-4 py-2 bg-leaf-green hover:bg-leaf-green-dark text-white rounded-lg transition-colors flex items-center gap-2 text-sm shadow-sm font-medium"><i data-feather="save" class="w-4 h-4"></i> Save Settings</button>
+                </div>
+
+                <!-- Settings Form -->
+                <div class="bg-white dark:bg-black/20 rounded-xl border border-black/5 dark:border-white/5 shadow-sm overflow-hidden">
+                    <div class="flex flex-col md:flex-row border-b border-black/5 dark:border-white/5 text-sm font-medium">
+                        <button class="px-6 py-4 border-b-2 border-leaf-green text-leaf-green">General Info</button>
+                        <button class="px-6 py-4 border-b-2 border-transparent text-charcoal-light dark:text-gray-400 hover:text-charcoal dark:hover:text-white transition-colors">SEO Performance</button>
+                        <button class="px-6 py-4 border-b-2 border-transparent text-charcoal-light dark:text-gray-400 hover:text-charcoal dark:hover:text-white transition-colors">Email & Notifications</button>
+                    </div>
+                    <div class="p-6 sm:p-8 space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold">Site Name</label>
+                                <input type="text" value="Eco-Friendly Packaging Supplier" class="w-full px-4 py-2 rounded-lg border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 focus:bg-white dark:focus:bg-charcoal outline-none focus:border-leaf-green transition-all text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold">Contact Email</label>
+                                <input type="email" value="contact@ecopackaging.com" class="w-full px-4 py-2 rounded-lg border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 focus:bg-white dark:focus:bg-charcoal outline-none focus:border-leaf-green transition-all text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold">Support Phone</label>
+                                <input type="text" value="+1 (800) 123-4567" class="w-full px-4 py-2 rounded-lg border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 focus:bg-white dark:focus:bg-charcoal outline-none focus:border-leaf-green transition-all text-sm">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-sm font-bold">Timezone</label>
+                                <select class="w-full px-4 py-2 rounded-lg border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 focus:bg-white dark:focus:bg-charcoal outline-none focus:border-leaf-green transition-all text-sm">
+                                    <option>UTC-05:00 Eastern Time (US & Canada)</option>
+                                    <option>UTC-08:00 Pacific Time (US & Canada)</option>
+                                    <option>UTC+00:00 Greenwich Mean Time</option>
+                                </select>
+                            </div>
+                            <div class="md:col-span-2 space-y-2">
+                                <label class="text-sm font-bold">Corporate Address</label>
+                                <input type="text" value="123 Eco Way, Green City, Planet Earth" class="w-full px-4 py-2 rounded-lg border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 focus:bg-white dark:focus:bg-charcoal outline-none focus:border-leaf-green transition-all text-sm">
+                            </div>
+                        </div>
+
+                        <hr class="border-black/5 dark:border-white/5 my-8">
+                        
+                        <h3 class="font-bold text-lg mb-4">Branding</h3>
+                        <div class="flex flex-col sm:flex-row gap-8">
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-lg bg-leaf-green/10 border border-leaf-green/20 flex flex-col items-center justify-center text-leaf-green cursor-pointer">
+                                    <i data-feather="image" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm mb-1">Company Logo</div>
+                                    <button class="text-xs font-medium bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 px-3 py-1.5 rounded transition-colors border border-black/10 dark:border-white/10">Upload New</button>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-16 h-16 rounded-lg bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 flex flex-col items-center justify-center text-charcoal-light dark:text-gray-400 cursor-pointer">
+                                    <i data-feather="monitor" class="w-6 h-6"></i>
+                                </div>
+                                <div>
+                                    <div class="font-bold text-sm mb-1">Favicon</div>
+                                    <button class="text-xs font-medium bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 px-3 py-1.5 rounded transition-colors border border-black/10 dark:border-white/10">Upload New</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr class="border-black/5 dark:border-white/5 my-8">
+
+                        <h3 class="font-bold text-lg mb-4">Site Maintenance</h3>
+                        <div class="flex items-center justify-between p-4 rounded-lg border border-yellow-500/30 bg-yellow-500/5 dark:bg-yellow-500/10">
+                            <div>
+                                <h4 class="font-bold text-yellow-600 dark:text-yellow-400 text-sm">Maintenance Mode</h4>
+                                <p class="text-xs font-medium text-charcoal-light dark:text-gray-400 mt-1">When enabled, visitors will see a "Under Construction" page.</p>
+                            </div>
+                            <!-- Toggle switch -->
+                            <label class="relative inline-flex items-center cursor-pointer">
+                                <input type="checkbox" value="" class="sr-only peer">
+                                <div class="w-11 h-6 bg-black/20 dark:bg-white/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-yellow-500"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Dashboard Footer -->
+            <footer class="mt-8 pt-6 pb-2 border-t border-black/5 dark:border-white/5 text-center text-sm text-charcoal-light dark:text-gray-400">
+                &copy; 2026 EcoPack System Admin. Restricted Access.
+            </footer>
+        </main>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>

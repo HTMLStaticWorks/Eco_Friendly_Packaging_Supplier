@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Solutions | EcoPack Supplier</title>
+    <meta name="description" content="Innovative eco-packaging workflow and solutions for large scale enterprises.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind.config.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/index.css">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="bg-soft-beige dark:bg-charcoal text-charcoal dark:text-soft-beige font-sans transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass transition-all duration-300 border-b border-black/5 dark:border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <i data-feather="package" class="text-leaf-green w-8 h-8"></i>
+                    <a href="index.html" class="font-bold text-2xl tracking-tight text-leaf-green dark:text-leaf-green-dark">EcoPack</a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-8 items-center rtl:space-x-reverse">
+                    <div class="relative group">
+                        <a href="index.html" class="text-charcoal dark:text-soft-beige hover:text-leaf-green transition-colors font-medium flex items-center gap-1">Home <i data-feather="chevron-down" class="w-4 h-4"></i></a>
+                        <div class="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-charcoal shadow-xl rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-black/5 dark:border-white/5">
+                            <a href="index.html" class="block px-4 py-2 hover:bg-black/5 dark:hover:bg-white/5">Home 1 (Classic)</a>
+                            <a href="home2.html" class="block px-4 py-2 hover:bg-black/5 dark:hover:bg-white/5">Home 2 (Enterprise)</a>
+                        </div>
+                    </div>
+                    <a href="products.html" class="text-charcoal dark:text-soft-beige hover:text-leaf-green transition-colors font-medium">Products</a>
+                    <a href="industries.html" class="text-charcoal dark:text-soft-beige hover:text-leaf-green transition-colors font-medium">Industries</a>
+                    <a href="about.html" class="text-charcoal dark:text-soft-beige hover:text-leaf-green transition-colors font-medium">About</a>
+                    <a href="contact.html" class="text-charcoal dark:text-soft-beige hover:text-leaf-green transition-colors font-medium">Contact</a>
+                    <a href="admin.html" class="text-charcoal dark:text-soft-beige hover:text-leaf-green transition-colors font-medium">Admin</a>
+                </div>
+
+                <!-- Actions -->
+                <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
+                    <button class="rtl-toggle p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                        <i data-feather="globe" class="w-5 h-5"></i>
+                    </button>
+                    <button class="theme-toggle p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                        <i data-feather="moon" class="w-5 h-5 dark:hidden"></i>
+                        <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                    <a href="login.html" class="px-4 py-2.5 border-2 border-leaf-green text-leaf-green hover:bg-leaf-green hover:text-white rounded-lg font-medium transition-all text-sm">Login</a>
+                    <a href="contact.html" class="px-5 py-2.5 bg-leaf-green hover:bg-leaf-green-dark text-white rounded-lg font-medium transition-colors shadow-lg shadow-leaf-green/30">Get Quote</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center gap-4">
+                    <button class="theme-toggle p-2">
+                        <i data-feather="moon" class="w-5 h-5 dark:hidden"></i>
+                        <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="p-2 text-charcoal dark:text-soft-beige hover:text-leaf-green">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden glass border-t border-black/10 dark:border-white/10">
+            <div class="px-4 pt-2 pb-6 space-y-1 text-charcoal dark:text-soft-beige">
+                <div class="px-3 py-2 text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Homepages</div>
+                <a href="index.html" class="block px-3 py-2 rounded-md font-medium text-leaf-green">Home 1</a>
+                <a href="home2.html" class="block px-3 py-2 rounded-md font-medium hover:text-leaf-green text-leaf-green">Home 2</a>
+                <div class="px-3 py-2 mt-2 text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Menu</div>
+                <a href="products.html" class="block px-3 py-2 rounded-md font-medium hover:bg-black/5 dark:hover:bg-white/5">Products</a>
+                <a href="industries.html" class="block px-3 py-2 rounded-md font-medium hover:bg-black/5 dark:hover:bg-white/5">Industries</a>
+                <a href="about.html" class="block px-3 py-2 rounded-md font-medium hover:bg-black/5 dark:hover:bg-white/5">About</a>
+                <a href="contact.html" class="block px-3 py-2 rounded-md font-medium hover:bg-black/5 dark:hover:bg-white/5">Contact</a>
+                <a href="admin.html" class="block px-3 py-2 rounded-md font-medium hover:bg-black/5 dark:hover:bg-white/5">Admin</a>
+                <hr class="border-black/10 dark:border-white/10 my-2">
+                <a href="login.html" class="block px-3 py-2 rounded-md font-medium hover:bg-black/5 dark:hover:bg-white/5">Login</a>
+                <button class="rtl-toggle w-full text-left px-3 py-2 rounded-md font-medium hover:bg-black/5 dark:hover:bg-white/5 text-charcoal dark:text-soft-beige">Toggle RTL/LTR</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Large Alternate Hero -->
+        <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-earth-brown text-soft-beige overflow-hidden">
+            <!-- Background Image -->
+            <img src="https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Eco Background" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-r from-earth-brown/90 via-earth-brown/50 to-transparent"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center animate-on-scroll">
+                <div>
+                    <span class="inline-block py-1 px-3 rounded-full bg-white/10 text-xs font-semibold tracking-wider uppercase mb-6 border border-white/20 delay-100">Enterprise Solutions</span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight delay-200">
+                        High-Volume Packaging That Doesn't Cost The Earth.
+                    </h1>
+                    <p class="text-lg opacity-90 mb-8 max-w-lg delay-300">
+                        Streamline your supply chain with our scalable, 100% biodegradable packaging solutions designed for global brands.
+                    </p>
+                    <div class="flex gap-4 delay-300">
+                        <a href="#demo" class="px-6 py-3 bg-leaf-green hover:bg-leaf-green-dark text-white rounded-lg font-medium transition-colors flex items-center gap-2">
+                            <i data-feather="play-circle" class="w-5 h-5"></i> Watch Demo
+                        </a>
+                        <a href="products.html" class="px-6 py-3 bg-transparent border border-white/30 hover:bg-white/10 rounded-lg font-medium transition-colors">
+                            View Catalog
+                        </a>
+                    </div>
+                </div>
+                <div class="relative img-hover-zoom rounded-2xl overflow-hidden shadow-2xl animate-on-scroll delay-200">
+                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Warehouse Packaging" class="w-full h-auto object-cover rounded-2xl">
+                    <div class="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none"></div>
+                </div>
+            </div>
+            
+            <!-- Structural abstract shape -->
+            <svg class="absolute bottom-0 w-full h-auto text-soft-beige dark:text-charcoal" viewBox="0 0 1440 100" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M0,50 C320,100 420,-0 720,20 C1020,40 1120,80 1440,50 L1440,100 L0,100 Z"></path>
+            </svg>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="py-16 bg-soft-beige dark:bg-charcoal">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-black/10 dark:divide-white/10 animate-on-scroll">
+                    <div>
+                        <div class="text-4xl md:text-5xl font-bold text-leaf-green mb-2">50M+</div>
+                        <div class="text-sm font-medium text-charcoal-light dark:text-gray-400 uppercase tracking-wide">Units Shipped</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl md:text-5xl font-bold text-leaf-green mb-2">120+</div>
+                        <div class="text-sm font-medium text-charcoal-light dark:text-gray-400 uppercase tracking-wide">Global Brands</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl md:text-5xl font-bold text-leaf-green mb-2">10K</div>
+                        <div class="text-sm font-medium text-charcoal-light dark:text-gray-400 uppercase tracking-wide">Trees Planted</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl md:text-5xl font-bold text-leaf-green mb-2">0%</div>
+                        <div class="text-sm font-medium text-charcoal-light dark:text-gray-400 uppercase tracking-wide">Plastic Waste</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Demo Section -->
+        <section id="demo" class="py-20">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
+                <h2 class="text-3xl font-bold mb-6">See EcoPack In Action</h2>
+                <p class="text-charcoal-light dark:text-gray-400 mb-12 max-w-2xl mx-auto">Discover how our automated folding technology pairs perfectly with our custom die-cut corrugated sheets.</p>
+                
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl group bg-black cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Video Thumbnail" class="w-full h-auto object-cover opacity-70 group-hover:opacity-50 transition-opacity">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="w-20 h-20 bg-leaf-green text-white rounded-full flex items-center justify-center pl-1 group-hover:scale-110 transition-transform shadow-lg shadow-leaf-green/50">
+                            <i data-feather="play" class="w-8 h-8"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Packaging Process Steps (How it Works) -->
+        <section class="py-24 bg-white dark:bg-charcoal/50 border-t border-black/5 dark:border-white/5">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl font-bold mb-4">Our Collaborative Process</h2>
+                    <p class="text-charcoal-light dark:text-gray-400 max-w-2xl mx-auto">From concept to delivery, our streamlined workflow ensures your packaging is perfect.</p>
+                </div>
+
+                <div class="grid md:grid-cols-4 gap-8 relative">
+                    <!-- Connector line (Desktop only) -->
+                    <div class="hidden md:block absolute top-8 left-[10%] right-[10%] h-0.5 bg-leaf-green/20"></div>
+
+                    <!-- Step 1 -->
+                    <div class="relative text-center animate-on-scroll delay-100">
+                        <div class="w-16 h-16 bg-white dark:bg-charcoal border-4 border-leaf-green rounded-full flex items-center justify-center mx-auto mb-6 relative z-10 text-leaf-green font-bold text-xl">1</div>
+                        <h4 class="text-lg font-bold mb-2">Consultation</h4>
+                        <p class="text-sm text-charcoal-light dark:text-gray-400">We analyze your product, supply chain, and aesthetic needs.</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative text-center animate-on-scroll delay-200">
+                        <div class="w-16 h-16 bg-white dark:bg-charcoal border-4 border-leaf-green/50 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10 text-leaf-green font-bold text-xl">2</div>
+                        <h4 class="text-lg font-bold mb-2">Structural Design</h4>
+                        <p class="text-sm text-charcoal-light dark:text-gray-400">Our engineers create custom die-lines and 3D prototypes.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative text-center animate-on-scroll delay-300">
+                        <div class="w-16 h-16 bg-white dark:bg-charcoal border-4 border-leaf-green/20 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10 text-leaf-green font-bold text-xl">3</div>
+                        <h4 class="text-lg font-bold mb-2">Eco-Manufacturing</h4>
+                        <p class="text-sm text-charcoal-light dark:text-gray-400">Sustainably produced using 100% renewable energy.</p>
+                    </div>
+                    <!-- Step 4 -->
+                    <div class="relative text-center animate-on-scroll delay-300">
+                        <div class="w-16 h-16 bg-leaf-green border-4 border-leaf-green rounded-full flex items-center justify-center mx-auto mb-6 relative z-10 text-white font-bold text-xl"><i data-feather="check"></i></div>
+                        <h4 class="text-lg font-bold mb-2">Delivery</h4>
+                        <p class="text-sm text-charcoal-light dark:text-gray-400">Flat-packed shipping to minimize carbon footprint.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Material Comparison -->
+        <section class="py-20 bg-earth-brown/5 dark:bg-earth-brown/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 animate-on-scroll">
+                    <h2 class="text-3xl font-bold mb-4">Material Innovation</h2>
+                    <p class="text-charcoal-light dark:text-gray-400 max-w-2xl mx-auto">Compare our flagship eco-materials against traditional packaging.</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 animate-on-scroll">
+                    <!-- Standard -->
+                    <div class="bg-white dark:bg-charcoal p-8 rounded-2xl border border-red-500/20 shadow-sm relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 text-red-500"><i data-feather="x-circle" class="w-24 h-24"></i></div>
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2"><div class="w-3 h-3 rounded-full bg-red-500"></div> Traditional Plastic</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3"><i data-feather="x" class="text-red-500 mt-1 w-5 h-5 flex-shrink-0"></i> <span class="text-charcoal-light dark:text-gray-400">Takes 500+ years to decompose.</span></li>
+                            <li class="flex items-start gap-3"><i data-feather="x" class="text-red-500 mt-1 w-5 h-5 flex-shrink-0"></i> <span class="text-charcoal-light dark:text-gray-400">Releases microplastics into oceans.</span></li>
+                            <li class="flex items-start gap-3"><i data-feather="x" class="text-red-500 mt-1 w-5 h-5 flex-shrink-0"></i> <span class="text-charcoal-light dark:text-gray-400">High carbon footprint during production.</span></li>
+                        </ul>
+                    </div>
+                    <!-- EcoPack -->
+                    <div class="bg-white dark:bg-charcoal p-8 rounded-2xl border-2 border-leaf-green shadow-xl relative overflow-hidden transform md:-translate-y-4">
+                        <div class="absolute top-0 right-0 bg-leaf-green text-white px-4 py-1 rounded-bl-xl text-xs font-bold uppercase tracking-wider">Our Solution</div>
+                        <div class="absolute bottom-0 right-0 p-4 opacity-5 text-leaf-green"><i data-feather="leaf" class="w-32 h-32"></i></div>
+                        
+                        <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-leaf-green"><div class="w-3 h-3 rounded-full bg-leaf-green"></div> Molded Plant Fiber</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-3"><i data-feather="check" class="text-leaf-green mt-1 w-5 h-5 flex-shrink-0"></i> <span class="font-medium">Composts fully in 90 days.</span></li>
+                            <li class="flex items-start gap-3"><i data-feather="check" class="text-leaf-green mt-1 w-5 h-5 flex-shrink-0"></i> <span class="font-medium">Made from upcycled agricultural waste (bagasse).</span></li>
+                            <li class="flex items-start gap-3"><i data-feather="check" class="text-leaf-green mt-1 w-5 h-5 flex-shrink-0"></i> <span class="font-medium">Carbon neutral manufacturing process.</span></li>
+                            <li class="flex items-start gap-3"><i data-feather="check" class="text-leaf-green mt-1 w-5 h-5 flex-shrink-0"></i> <span class="font-medium">Custom molded to hug your product precisely.</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Banner -->
+        <section class="py-20 bg-leaf-green text-white text-center">
+            <div class="max-w-4xl mx-auto px-4 animate-on-scroll">
+                <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to make the sustainable switch?</h2>
+                <p class="text-lg opacity-90 mb-10 max-w-2xl mx-auto">Join the movement of forward-thinking brands transitioning to zero-waste packaging without compromising on aesthetics or durability.</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="contact.html" class="px-8 py-4 bg-white text-leaf-green font-bold rounded-xl hover:bg-soft-beige transition-colors shadow-lg">Request a Free Audit</a>
+                    <a href="products.html" class="px-8 py-4 bg-transparent border-2 border-white/50 hover:border-white text-white font-bold rounded-xl transition-colors">Browse Solutions</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-gray-300 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <i data-feather="package" class="text-leaf-green"></i>
+                        <span class="font-bold text-2xl text-white">EcoPack</span>
+                    </div>
+                    <p class="mb-6 opacity-80 text-sm leading-relaxed">Pioneering sustainable packaging solutions for businesses that prioritize the planet as much as their products.</p>
+                    <div class="flex gap-4">
+                        <a href="#" class="hover:text-leaf-green transition-colors"><i data-feather="linkedin" class="w-5 h-5"></i></a>
+                        <a href="#" class="hover:text-leaf-green transition-colors"><i data-feather="twitter" class="w-5 h-5"></i></a>
+                        <a href="#" class="hover:text-leaf-green transition-colors"><i data-feather="instagram" class="w-5 h-5"></i></a>
+                    </div>
+                </div>
+
+                <!-- Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 uppercase text-sm tracking-wider">Quick Links</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="about.html" class="hover:text-leaf-green transition-colors">About Us</a></li>
+                        <li><a href="products.html" class="hover:text-leaf-green transition-colors">Our Products</a></li>
+                        <li><a href="industries.html" class="hover:text-leaf-green transition-colors">Industries</a></li>
+                        <li><a href="contact.html" class="hover:text-leaf-green transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 uppercase text-sm tracking-wider">Support</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="404.html" class="hover:text-leaf-green transition-colors">FAQ</a></li>
+                        <li><a href="404.html" class="hover:text-leaf-green transition-colors">Shipping Policy</a></li>
+                        <li><a href="404.html" class="hover:text-leaf-green transition-colors">Returns</a></li>
+                        <li><a href="404.html" class="hover:text-leaf-green transition-colors">Sustainability Report</a></li>
+                    </ul>
+                </div>
+
+                <!-- Newsletter -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6 uppercase text-sm tracking-wider">Newsletter</h4>
+                    <p class="text-sm opacity-80 mb-4">Subscribe for eco-packaging tips and industry news.</p>
+                    <form class="flex gap-2">
+                        <input type="email" placeholder="Your email address" class="w-full bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm text-white focus:outline-none focus:border-leaf-green transition-colors" required>
+                        <button type="submit" class="bg-leaf-green hover:bg-leaf-green-dark px-4 py-2 rounded-lg transition-colors">
+                            <i data-feather="send" class="w-4 h-4 text-white"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm opacity-60">
+                <p>&copy; 2026 EcoPack Supplier. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="404.html" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="404.html" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>

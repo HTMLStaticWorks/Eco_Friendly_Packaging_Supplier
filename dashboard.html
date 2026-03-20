@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | EcoPack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="assets/js/tailwind.config.js"></script>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body class="bg-soft-beige dark:bg-charcoal text-charcoal dark:text-soft-beige font-sans flex h-screen overflow-hidden">
+    
+    <!-- Sidebar Overlay -->
+    <div id="admin-sidebar-overlay" class="fixed inset-0 bg-charcoal/50 z-40 hidden lg:hidden opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+    
+    <!-- Sidebar -->
+    <aside id="admin-sidebar" class="w-64 bg-white dark:bg-black/20 border-r border-black/5 dark:border-white/5 flex flex-col h-full flex-shrink-0 transition-transform duration-300 fixed inset-y-0 left-0 z-50 -translate-x-full lg:relative lg:translate-x-0">
+        <!-- Logo -->
+        <div class="h-16 flex items-center px-6 border-b border-black/5 dark:border-white/5">
+            <a href="index.html" class="flex items-center gap-2">
+                <i data-feather="package" class="text-leaf-green w-6 h-6"></i>
+                <span class="font-bold text-xl tracking-tight text-leaf-green">EcoPack CRM</span>
+            </a>
+        </div>
+        
+        <!-- Nav Links -->
+        <div class="flex-1 overflow-y-auto py-6 px-4 space-y-1">
+            <p class="px-3 text-xs font-semibold text-charcoal-light dark:text-gray-500 uppercase tracking-wider mb-2">Main Menu</p>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 bg-leaf-green/10 text-leaf-green rounded-lg font-medium transition-colors">
+                <i data-feather="grid" class="w-5 h-5"></i> Dashboard
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-charcoal-light dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-charcoal dark:hover:text-white rounded-lg font-medium transition-colors">
+                <i data-feather="shopping-cart" class="w-5 h-5"></i> Orders
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-charcoal-light dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-charcoal dark:hover:text-white rounded-lg font-medium transition-colors">
+                <i data-feather="box" class="w-5 h-5"></i> Inventory
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-charcoal-light dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-charcoal dark:hover:text-white rounded-lg font-medium transition-colors">
+                <i data-feather="users" class="w-5 h-5"></i> Customers
+            </a>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-charcoal-light dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-charcoal dark:hover:text-white rounded-lg font-medium transition-colors">
+                <i data-feather="pie-chart" class="w-5 h-5"></i> Analytics
+            </a>
+            
+            <p class="px-3 text-xs font-semibold text-charcoal-light dark:text-gray-500 uppercase tracking-wider mt-8 mb-2">Settings</p>
+            <a href="#" class="flex items-center gap-3 px-3 py-2.5 text-charcoal-light dark:text-gray-400 hover:bg-black/5 dark:hover:bg-white/5 hover:text-charcoal dark:hover:text-white rounded-lg font-medium transition-colors">
+                <i data-feather="settings" class="w-5 h-5"></i> Preferences
+            </a>
+        </div>
+
+        <!-- Logout -->
+        <div class="p-4 border-t border-black/5 dark:border-white/5">
+            <a href="login.html" class="flex items-center gap-3 px-3 py-2.5 text-red-500 hover:bg-red-500/10 rounded-lg font-medium transition-colors">
+                <i data-feather="log-out" class="w-5 h-5"></i> Logout
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex flex-col h-full h-full overflow-hidden">
+        
+        <!-- Topbar -->
+        <header class="h-16 bg-white dark:bg-black/20 border-b border-black/5 dark:border-white/5 flex items-center justify-between px-4 sm:px-6 lg:px-8 z-10 transition-all duration-300">
+            <div class="flex items-center gap-4">
+                <button id="admin-menu-btn" class="lg:hidden p-2 text-charcoal dark:text-white">
+                    <i data-feather="menu"></i>
+                </button>
+                <div class="relative hidden sm:block">
+                    <i data-feather="search" class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"></i>
+                    <input type="text" placeholder="Search orders..." class="pl-10 pr-4 py-2 bg-black/5 dark:bg-white/5 border-transparent focus:border-leaf-green focus:bg-white dark:focus:bg-charcoal rounded-lg text-sm w-64 outline-none transition-all">
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <button class="rtl-toggle p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                    <i data-feather="globe" class="w-5 h-5"></i>
+                </button>
+                <button class="theme-toggle p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                    <i data-feather="moon" class="w-5 h-5 dark:hidden"></i>
+                    <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
+                </button>
+                <div class="relative ml-2">
+                    <button class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
+                        <i data-feather="bell" class="w-5 h-5"></i>
+                        <span class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 border-2 border-white dark:border-charcoal rounded-full"></span>
+                    </button>
+                </div>
+                <div class="h-8 w-8 rounded-full bg-leaf-green text-white flex items-center justify-center font-bold text-sm ml-2 cursor-pointer shadow-sm">
+                    JD
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <main class="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8">
+            <div class="max-w-7xl mx-auto">
+                
+                <h1 class="text-2xl font-bold mb-6">Overview</h1>
+
+                <!-- Stats Cards -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+                    <!-- Card 1 -->
+                    <div class="bg-white dark:bg-black/20 p-6 rounded-xl border border-black/5 dark:border-white/5 shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-xs font-semibold text-charcoal-light dark:text-gray-400 uppercase tracking-wide">Total Revenue</p>
+                                <h3 class="text-2xl font-bold mt-1">$45,231</h3>
+                            </div>
+                            <div class="p-2 bg-leaf-green/10 text-leaf-green rounded-lg"><i data-feather="dollar-sign" class="w-5 h-5"></i></div>
+                        </div>
+                        <div class="flex items-center text-sm font-medium text-leaf-green">
+                            <i data-feather="trending-up" class="w-4 h-4 mr-1"></i> 12.5% <span class="text-charcoal-light dark:text-gray-500 ml-1 font-normal text-xs">vs last month</span>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="bg-white dark:bg-black/20 p-6 rounded-xl border border-black/5 dark:border-white/5 shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-xs font-semibold text-charcoal-light dark:text-gray-400 uppercase tracking-wide">Active Orders</p>
+                                <h3 class="text-2xl font-bold mt-1">124</h3>
+                            </div>
+                            <div class="p-2 bg-blue-500/10 text-blue-500 rounded-lg"><i data-feather="shopping-bag" class="w-5 h-5"></i></div>
+                        </div>
+                        <div class="flex items-center text-sm font-medium text-leaf-green">
+                            <i data-feather="trending-up" class="w-4 h-4 mr-1"></i> 8.2% <span class="text-charcoal-light dark:text-gray-500 ml-1 font-normal text-xs">vs last month</span>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="bg-white dark:bg-black/20 p-6 rounded-xl border border-black/5 dark:border-white/5 shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-xs font-semibold text-charcoal-light dark:text-gray-400 uppercase tracking-wide">Trees Planted</p>
+                                <h3 class="text-2xl font-bold mt-1">1,048</h3>
+                            </div>
+                            <div class="p-2 bg-earth-brown/10 text-earth-brown rounded-lg"><i data-feather="heart" class="w-5 h-5"></i></div>
+                        </div>
+                        <p class="text-xs text-charcoal-light dark:text-gray-500 mt-2">Through EcoPack offsets</p>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="bg-white dark:bg-black/20 p-6 rounded-xl border border-black/5 dark:border-white/5 shadow-sm">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <p class="text-xs font-semibold text-charcoal-light dark:text-gray-400 uppercase tracking-wide">Pending Quotes</p>
+                                <h3 class="text-2xl font-bold mt-1">14</h3>
+                            </div>
+                            <div class="p-2 bg-yellow-500/10 text-yellow-500 rounded-lg"><i data-feather="message-circle" class="w-5 h-5"></i></div>
+                        </div>
+                        <div class="flex items-center text-sm font-medium text-red-500">
+                            <i data-feather="trending-down" class="w-4 h-4 mr-1"></i> Action Required
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Recent Orders Table -->
+                    <div class="lg:col-span-2 bg-white dark:bg-black/20 rounded-xl border border-black/5 dark:border-white/5 shadow-sm overflow-hidden">
+                        <div class="px-6 py-5 border-b border-black/5 dark:border-white/5 flex justify-between items-center">
+                            <h3 class="font-bold text-lg">Recent Orders</h3>
+                            <button class="text-sm font-medium text-leaf-green hover:underline">View All</button>
+                        </div>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-black/5 dark:bg-white/5 text-xs uppercase tracking-wider text-charcoal-light dark:text-gray-400">
+                                        <th class="px-6 py-3 font-semibold">Order ID</th>
+                                        <th class="px-6 py-3 font-semibold">Client</th>
+                                        <th class="px-6 py-3 font-semibold">Date</th>
+                                        <th class="px-6 py-3 font-semibold">Status</th>
+                                        <th class="px-6 py-3 font-semibold text-right">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="divide-y divide-black/5 dark:divide-white/5 text-sm">
+                                    <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                                        <td class="px-6 py-4 font-medium">#ORD-0921</td>
+                                        <td class="px-6 py-4">OrganicBrew Co.</td>
+                                        <td class="px-6 py-4 text-charcoal-light dark:text-gray-400">Oct 24, 2026</td>
+                                        <td class="px-6 py-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">Shipped</span>
+                                        </td>
+                                        <td class="px-6 py-4 font-semibold text-right">$1,240.00</td>
+                                    </tr>
+                                    <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                                        <td class="px-6 py-4 font-medium">#ORD-0920</td>
+                                        <td class="px-6 py-4">Nature's Essence</td>
+                                        <td class="px-6 py-4 text-charcoal-light dark:text-gray-400">Oct 22, 2026</td>
+                                        <td class="px-6 py-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400">Processing</span>
+                                        </td>
+                                        <td class="px-6 py-4 font-semibold text-right">$850.50</td>
+                                    </tr>
+                                    <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                                        <td class="px-6 py-4 font-medium">#ORD-0919</td>
+                                        <td class="px-6 py-4">EcoWear Apparel</td>
+                                        <td class="px-6 py-4 text-charcoal-light dark:text-gray-400">Oct 21, 2026</td>
+                                        <td class="px-6 py-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-400">In Production</span>
+                                        </td>
+                                        <td class="px-6 py-4 font-semibold text-right">$3,420.00</td>
+                                    </tr>
+                                     <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                                        <td class="px-6 py-4 font-medium">#ORD-0918</td>
+                                        <td class="px-6 py-4">Urban Roots</td>
+                                        <td class="px-6 py-4 text-charcoal-light dark:text-gray-400">Oct 18, 2026</td>
+                                        <td class="px-6 py-4">
+                                            <span class="inline-flex items-center px-2 py-1 rounded text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">Shipped</span>
+                                        </td>
+                                        <td class="px-6 py-4 font-semibold text-right">$450.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Widgets Column -->
+                    <div class="space-y-8">
+                        <!-- Inventory Summary -->
+                        <div class="bg-white dark:bg-black/20 p-6 rounded-xl border border-black/5 dark:border-white/5 shadow-sm">
+                            <h3 class="font-bold text-lg mb-6">Top Inventory</h3>
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span class="font-medium">Kraft Mailer Boxes</span>
+                                        <span class="text-charcoal-light dark:text-gray-400">75%</span>
+                                    </div>
+                                    <div class="w-full bg-black/10 dark:bg-white/10 rounded-full h-2">
+                                        <div class="bg-leaf-green h-2 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span class="font-medium">Molded Pulp Inserts</span>
+                                        <span class="text-charcoal-light dark:text-gray-400">40%</span>
+                                    </div>
+                                    <div class="w-full bg-black/10 dark:bg-white/10 rounded-full h-2">
+                                        <div class="bg-yellow-500 h-2 rounded-full" style="width: 40%"></div>
+                                    </div>
+                                    <p class="text-xs text-red-500 mt-1">Low stock warning</p>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-sm mb-1">
+                                        <span class="font-medium">Glass Jars (100ml)</span>
+                                        <span class="text-charcoal-light dark:text-gray-400">90%</span>
+                                    </div>
+                                    <div class="w-full bg-black/10 dark:bg-white/10 rounded-full h-2">
+                                        <div class="bg-blue-500 h-2 rounded-full" style="width: 90%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Customer Inquiries -->
+                        <div class="bg-white dark:bg-black/20 p-6 rounded-xl border border-black/5 dark:border-white/5 shadow-sm">
+                            <h3 class="font-bold text-lg mb-4">Recent Inquiries</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center shrink-0">
+                                        <i data-feather="user" class="w-5 h-5 text-gray-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">Bulk Pricing Request</p>
+                                        <p class="text-xs text-charcoal-light dark:text-gray-400 mb-1">From: Alice Wonderland</p>
+                                        <p class="text-xs text-leaf-green font-semibold cursor-pointer">Reply</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <div class="w-10 h-10 rounded-full bg-black/5 dark:bg-white/5 flex items-center justify-center shrink-0">
+                                        <i data-feather="user" class="w-5 h-5 text-gray-500"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium">Custom Design Question</p>
+                                        <p class="text-xs text-charcoal-light dark:text-gray-400 mb-1">From: Robert Corp.</p>
+                                        <p class="text-xs text-leaf-green font-semibold cursor-pointer">Reply</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- Dashboard Footer -->
+            <footer class="mt-8 pt-6 pb-2 border-t border-black/5 dark:border-white/5 text-center text-sm text-charcoal-light dark:text-gray-400">
+                &copy; 2026 EcoPack Supplier. All rights reserved. • <a href="contact.html" class="hover:underline">Contact Support</a>
+            </footer>
+        </main>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+    <script>feather.replace();</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+/* Base styles and custom utilities */
+@layer base {
+  body {
+    @apply antialiased text-charcoal bg-beige;
+  }
+}
+
+/* Custom properties for easy access */
+:root {
+  --color-leaf-green: #2E7D32;
+  --color-earth-brown: #8D6E63;
+  --color-soft-beige: #F5F5DC;
+  --color-charcoal: #333333;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(245, 245, 220, 0.85); /* beige with opacity */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(46, 125, 50, 0.1);
+}
+
+.dark .glass {
+  background: rgba(51, 51, 51, 0.85); /* charcoal with opacity */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Animations */
+.fade-in {
+  animation: fadeIn 0.8s ease-in-out forwards;
+  opacity: 0;
+}
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Image Hover Effects */
+.img-hover-zoom {
+  transition: transform 0.5s ease;
+  overflow: hidden;
+}
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+.img-hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Custom Utilities for RTL */
+[dir="rtl"] .ml-auto {
+  margin-left: unset;
+  margin-right: auto;
+}
+[dir="rtl"] .mr-auto {
+  margin-right: unset;
+  margin-left: auto;
+}
+[dir="rtl"] .pr-4 {
+  padding-right: unset;
+  padding-left: 1rem;
+}
+[dir="rtl"] .pl-4 {
+  padding-left: unset;
+  padding-right: 1rem;
+}
