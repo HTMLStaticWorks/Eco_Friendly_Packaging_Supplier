@@ -36,7 +36,7 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex space-x-8 items-center rtl:space-x-reverse">
+                <div class="hidden xl:flex space-x-8 items-center rtl:space-x-reverse">
                     <div class="relative group">
                         <a href="index.html" class="text-charcoal dark:text-soft-beige hover:text-leaf-green transition-colors font-medium flex items-center gap-1">Home <i data-feather="chevron-down" class="w-4 h-4"></i></a>
                         <div class="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-charcoal shadow-xl rounded-xl py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50 border border-black/5 dark:border-white/5">
@@ -52,7 +52,7 @@
                 </div>
 
                 <!-- Actions -->
-                <div class="hidden lg:flex items-center space-x-4 rtl:space-x-reverse">
+                <div class="hidden xl:flex items-center space-x-4 rtl:space-x-reverse">
                     <button class="rtl-toggle p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/10 transition-colors">
                         <i data-feather="globe" class="w-5 h-5"></i>
                     </button>
@@ -65,7 +65,7 @@
                 </div>
 
                 <!-- Mobile menu button -->
-                <div class="lg:hidden flex items-center gap-4">
+                <div class="xl:hidden flex items-center gap-4">
                     <button class="theme-toggle p-2">
                         <i data-feather="moon" class="w-5 h-5 dark:hidden"></i>
                         <i data-feather="sun" class="w-5 h-5 hidden dark:block"></i>
@@ -78,7 +78,7 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden glass border-t border-black/10 dark:border-white/10">
+        <div id="mobile-menu" class="hidden xl:hidden glass border-t border-black/10 dark:border-white/10">
             <div class="px-4 pt-2 pb-6 space-y-1 text-charcoal dark:text-soft-beige">
                 <div class="px-3 py-2 text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Homepages</div>
                 <a href="index.html" class="block px-3 py-2 rounded-md font-medium text-leaf-green">Home 1</a>
@@ -91,6 +91,7 @@
                 <a href="admin.html" class="block px-3 py-2 rounded-md font-medium hover:bg-black/5 dark:hover:bg-white/5">Admin</a>
                 <hr class="border-black/10 dark:border-white/10 my-2">
                 <a href="login.html" class="block px-3 py-2 rounded-md font-medium hover:bg-black/5 dark:hover:bg-white/5">Login</a>
+                <a href="contact.html" class="block mt-2 px-3 py-2 bg-leaf-green hover:bg-leaf-green-dark text-white rounded-md font-medium text-center shadow-lg shadow-leaf-green/30">Get Quote</a>
                 <button class="rtl-toggle w-full text-left px-3 py-2 rounded-md font-medium hover:bg-black/5 dark:hover:bg-white/5 text-charcoal dark:text-soft-beige">Toggle RTL/LTR</button>
             </div>
         </div>
@@ -98,21 +99,25 @@
 
     <main>
         <!-- Large Alternate Hero -->
-        <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-earth-brown text-soft-beige overflow-hidden">
+        <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 text-soft-beige overflow-hidden bg-charcoal">
             <!-- Background Image -->
-            <img src="https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Eco Background" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40">
-            <div class="absolute inset-0 bg-gradient-to-r from-earth-brown/90 via-earth-brown/50 to-transparent"></div>
+            <img src="https://images.unsplash.com/photo-1605600659908-0ef719419d41?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Eco Background" class="absolute inset-0 w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
             
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid lg:grid-cols-2 gap-12 items-center animate-on-scroll">
-                <div>
+                <div class="relative img-hover-zoom rounded-2xl overflow-hidden shadow-2xl animate-on-scroll delay-200">
+                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Warehouse Packaging" class="w-full h-auto object-cover rounded-2xl">
+                    <div class="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none"></div>
+                </div>
+                <div class="text-center flex flex-col items-center">
                     <span class="inline-block py-1 px-3 rounded-full bg-white/10 text-xs font-semibold tracking-wider uppercase mb-6 border border-white/20 delay-100">Enterprise Solutions</span>
                     <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight delay-200">
                         High-Volume Packaging That Doesn't Cost The Earth.
                     </h1>
-                    <p class="text-lg opacity-90 mb-8 max-w-lg delay-300">
+                    <p class="text-lg opacity-90 mb-8 max-w-lg mx-auto delay-300">
                         Streamline your supply chain with our scalable, 100% biodegradable packaging solutions designed for global brands.
                     </p>
-                    <div class="flex gap-4 delay-300">
+                    <div class="flex justify-center gap-4 delay-300">
                         <a href="#demo" class="px-6 py-3 bg-leaf-green hover:bg-leaf-green-dark text-white rounded-lg font-medium transition-colors flex items-center gap-2">
                             <i data-feather="play-circle" class="w-5 h-5"></i> Watch Demo
                         </a>
@@ -120,10 +125,6 @@
                             View Catalog
                         </a>
                     </div>
-                </div>
-                <div class="relative img-hover-zoom rounded-2xl overflow-hidden shadow-2xl animate-on-scroll delay-200">
-                    <img src="https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Warehouse Packaging" class="w-full h-auto object-cover rounded-2xl">
-                    <div class="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none"></div>
                 </div>
             </div>
             
@@ -236,7 +237,7 @@
                     <!-- EcoPack -->
                     <div class="bg-white dark:bg-charcoal p-8 rounded-2xl border-2 border-leaf-green shadow-xl relative overflow-hidden transform md:-translate-y-4">
                         <div class="absolute top-0 right-0 bg-leaf-green text-white px-4 py-1 rounded-bl-xl text-xs font-bold uppercase tracking-wider">Our Solution</div>
-                        <div class="absolute bottom-0 right-0 p-4 opacity-5 text-leaf-green"><i data-feather="leaf" class="w-32 h-32"></i></div>
+                        <div class="absolute bottom-0 right-0 p-4 opacity-5 text-leaf-green"><i data-feather="feather" class="w-32 h-32"></i></div>
                         
                         <h3 class="text-xl font-bold mb-6 flex items-center gap-2 text-leaf-green"><div class="w-3 h-3 rounded-full bg-leaf-green"></div> Molded Plant Fiber</h3>
                         <ul class="space-y-4">
@@ -272,7 +273,7 @@
                 <div>
                     <div class="flex items-center gap-2 mb-6">
                         <i data-feather="package" class="text-leaf-green"></i>
-                        <span class="font-bold text-2xl text-white">EcoPack</span>
+                        <span class="font-bold text-2xl tracking-tight text-leaf-green">EcoPack</span>
                     </div>
                     <p class="mb-6 opacity-80 text-sm leading-relaxed">Pioneering sustainable packaging solutions for businesses that prioritize the planet as much as their products.</p>
                     <div class="flex gap-4">
