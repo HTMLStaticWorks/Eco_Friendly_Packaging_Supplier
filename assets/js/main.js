@@ -77,6 +77,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('nav a');
     
     navLinks.forEach(link => {
+        // Skip buttons from active link highlighting
+        if (link.classList.contains('bg-leaf-green') || link.classList.contains('border-2')) {
+            return;
+        }
+
         const linkHref = link.getAttribute('href');
         if (linkHref && linkHref === currentPath) {
             // Main styling for active link

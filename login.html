@@ -58,11 +58,15 @@
                         <input type="email" class="w-full bg-soft-beige dark:bg-black/20 border border-transparent focus:border-leaf-green rounded-lg px-4 py-3 outline-none transition-all" placeholder="name@company.com" required>
                     </div>
                     <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <label class="block text-sm font-medium">Password</label>
-                            <a href="#" class="text-xs font-semibold text-leaf-green hover:underline">Forgot password?</a>
-                        </div>
+                        <label class="block text-sm font-medium mb-2">Password</label>
                         <input type="password" class="w-full bg-soft-beige dark:bg-black/20 border border-transparent focus:border-leaf-green rounded-lg px-4 py-3 outline-none transition-all" placeholder="••••••••" required>
+                        <div class="flex justify-between items-center mt-4">
+                            <label class="flex items-center gap-2 cursor-pointer group">
+                                <input type="checkbox" class="w-4 h-4 accent-leaf-green cursor-pointer rounded border-gray-300">
+                                <span class="text-sm text-charcoal-light dark:text-gray-400 group-hover:text-leaf-green transition-colors">Remember me</span>
+                            </label>
+                            <a href="#" class="text-sm font-semibold text-leaf-green hover:underline">Forgot password?</a>
+                        </div>
                     </div>
                     
                     <button type="submit" class="w-full py-3.5 bg-leaf-green hover:bg-leaf-green-dark text-white rounded-lg font-bold transition-all shadow-lg shadow-leaf-green/30">Sign In</button>
