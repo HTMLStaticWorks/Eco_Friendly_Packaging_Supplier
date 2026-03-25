@@ -14,12 +14,12 @@
 </head>
 <body class="bg-soft-beige dark:bg-charcoal text-charcoal dark:text-soft-beige font-sans min-h-screen flex flex-col">
     
-    <main class="flex-grow grid lg:grid-cols-2">
+    <main class="flex-grow flex flex-col lg:grid lg:grid-cols-2 min-h-screen">
         <!-- Illustration Side -->
         <div class="hidden lg:block relative h-full bg-leaf-green">
             <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Eco Background" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30">
             <div class="absolute inset-0 bg-gradient-to-t from-leaf-green-dark/80 to-transparent"></div>
-            <div class="absolute bottom-12 left-12 right-12 text-white">
+            <div class="absolute inset-0 flex flex-col justify-center items-center text-center px-12 text-white">
                 <h2 class="text-3xl font-bold mb-4">Welcome back to EcoPack</h2>
                 <p class="opacity-90 leading-relaxed">Manage your sustainable packaging orders, track shipments, and view your carbon offset analytics all in one place.</p>
             </div>
@@ -33,7 +33,7 @@
         </div>
 
         <!-- Form Side -->
-        <div class="flex flex-col justify-center items-center p-8 lg:p-12 relative overflow-y-auto w-full h-full bg-white dark:bg-charcoal">
+        <div class="flex flex-col justify-center items-center p-8 lg:p-12 relative overflow-y-auto w-full flex-1 lg:h-full bg-white dark:bg-charcoal">
             <!-- Mobile Toggle -->
             <button class="lg:hidden theme-toggle absolute top-6 right-6 p-2 text-charcoal dark:text-soft-beige">
                 <i data-feather="moon" class="w-5 h-5 dark:hidden"></i>
